@@ -1,74 +1,89 @@
-<!DOCTYPE html>
+
 <html>
 <head>
-<title>HALA Eid Greeting Generator</title>
+  <title>HALA Eid Greeting </title>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
 
-<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    #card {
+      position: relative;
+      display: inline-block;
+      margin-top: 20px;
+    }
 
-<style>
-body{
-  text-align:center;
-  font-family:Arial;
-}
+    #card img {
+      width: 600px;
+      display: block;
+    }
 
-#card{
-  position:relative;
-  display:inline-block;
-  margin-top:20px;
-}
-
-#card img{
-  width:600px;
-}
-
-#nameText{
-  position:absolute;
-  bottom:120px;
-  width:100%;
-  font-size:28px;
-  font-weight:bold;
-  color:#333;
-}
-</style>
+    #nameText {
+      position: absolute;
+      bottom: 120px;
+      width: 100%;
+      font-size: 28px;
+      font-weight: bold;
+      color: #333;
+      text-align: center;
+    }
+  </style>
 </head>
-
 <body>
 
-<h2>HALA Eid Greeting Generator</h2>
+  <h2>HALA Eid Greeting </h2>
 
-<input type="text" id="username" placeholder="Enter your name">
-<br><br>
+  <input type="text" id="username" placeholder="Enter your name">
+  <br><br>
 
-<button onclick="generateCard()">Generate</button>
-<button onclick="downloadCard()">Download</button>
+  <button onclick="generateCard()">Generate</button>
+  <button onclick="downloadCard()">Download</button>
 
-<br><br>
+  <br><br>
 
-<div id="card">
+  <div id="card">
+    <img
+      id="cardImage"
+      src="https://i.ibb.co/j957Cx3k/Hala-Eid-Greeting-04.jpg"
+      alt="Hala Eid Greeting"
+      crossorigin="anonymous"
+    >
+    <div id="nameText"></div>
+  </div>
 
-<img src="https://i.ibb.co/j957Cx3k/Hala-Eid-Greeting-04.jpg">
+  <script>
+    function generateCard() {
+      const name = document.getElementById("username").value;
+      document.getElementById("nameText").innerText = name;
+    }
 
-<div id="nameText"></div>
+    function downloadCard() {
+      const card = document.getElementById("card");
+      const img = document.getElementById("cardImage");
 
-</div>
+      if (!img.complete) {
+        alert("Image is still loading. Please wait a moment and try again.");
+        return;
+      }
 
-<script>
-
-function generateCard(){
-var name=document.getElementById("username").value;
-document.getElementById("nameText").innerText=name;
-}
-
-function downloadCard(){
-html2canvas(document.querySelector("#card")).then(canvas=>{
-var link=document.createElement("a");
-link.download="hala-eid-greeting.png";
-link.href=canvas.toDataURL();
-link.click();
-});
-}
-
-</script>
+      html2canvas(card, {
+        useCORS: true,
+        allowTaint: false,
+        backgroundColor: null,
+        scale: 2
+      }).then(canvas => {
+        const link = document.createElement("a");
+        link.download = "hala-eid-greeting.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+      }).catch(err => {
+        console.error(err);
+        alert("Download failed. The image host may be blocking canvas access.");
+      });
+    }
+  </script>
 
 </body>
 </html>
