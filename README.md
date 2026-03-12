@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+
 <html>
 <head>
-<title>HALA Eid Greeting Generator</title>
+<title>HALA Eid Greeting </title>
 
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
@@ -36,7 +36,7 @@ body{
 
 <body>
 
-<h2>HALA Eid Greeting Generator</h2>
+<h2>HALA Eid Greeting </h2>
 
 <input type="text" id="username" placeholder="Enter your name">
 <br><br>
