@@ -1,4 +1,3 @@
-
 <html>
 <head>
   <title>HALA Eid Greeting </title>
