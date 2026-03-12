@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+
 <html>
 <head>
-<title>Ramadan Greeting - HALA</title>
+<title>Eid Greeting - HALA</title>
 
 <style>
 body {
@@ -32,7 +32,7 @@ body {
 
 <body>
 
-<h2>Ramadan Greeting Generator</h2>
+<h2>Eid Greeting </h2>
 
 <input type="text" id="username" placeholder="Enter your name">
 <button onclick="generateCard()">Generate</button>
